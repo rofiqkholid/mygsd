@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+<<<<<<< HEAD
 
 /*
 | -------------------------------------------------------------------
@@ -70,16 +71,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
+=======
+>>>>>>> 1216e28 (Pesan commit baru, contoh: Perbaikan sidebar)
 $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
+<<<<<<< HEAD
 	'hostname' => '127.0.0.1',
 	'username' => 'rofiqkholid',
 	'password' => 'dhenrofiq',
 	'database' => 'mygsd_db',
 	'dbdriver' => 'mysqli',
+=======
+	'hostname' => 'DHENROFIQ',
+	'username' => 'sa',
+	'password' => 'dhenrofiq',
+	'database' => 'gsd_db',
+	'dbdriver' => 'sqlsrv',
+>>>>>>> 1216e28 (Pesan commit baru, contoh: Perbaikan sidebar)
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

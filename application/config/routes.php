@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+<<<<<<< HEAD
 /*
 | -------------------------------------------------------------------------
 | URI ROUTING
@@ -51,4 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'Auth';
 $route['404_override'] = '';
+=======
+$route['default_controller'] = 'Auth';
+
+$route['404_override'] = 'NotFound404';
+>>>>>>> 1216e28 (Pesan commit baru, contoh: Perbaikan sidebar)
 $route['translate_uri_dashes'] = FALSE;

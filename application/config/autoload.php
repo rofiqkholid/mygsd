@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+<<<<<<< HEAD
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +133,12 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
+=======
+$autoload['packages'] = array();
+$autoload['libraries'] = array('database', 'session', 'form_validation');
+$autoload['drivers'] = array();
+$autoload['helper'] = array('url', 'form');
+$autoload['config'] = array();
+$autoload['language'] = array();
+>>>>>>> 1216e28 (Pesan commit baru, contoh: Perbaikan sidebar)
 $autoload['model'] = array();
