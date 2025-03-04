@@ -3,6 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
     public function index() {
-        $this->load->view('dashboard'); // Tampilkan tampilan dashboard
+        $this->load->view('dashboard/dashboard'); // Tampilkan tampilan dashboard
     }
 }
