@@ -92,11 +92,11 @@
                 sidebar.classList.toggle("closed");
 
                 if (sidebar.classList.contains("closed")) {
-                    toggleBtn.style.display = "block"; // Tampilkan tombol ☰ saat sidebar tertutup
-                    closeBtn.style.display = "none"; // Sembunyikan tombol ✖
+                    toggleBtn.style.display = "block"; 
+                    closeBtn.style.display = "none"; 
                 } else {
-                    toggleBtn.style.display = "none"; // Sembunyikan tombol ☰ saat sidebar terbuka
-                    closeBtn.style.display = "block"; // Tampilkan tombol ✖
+                    toggleBtn.style.display = "none"; 
+                    closeBtn.style.display = "block"; 
                 }
 
                 updateContentMargin();

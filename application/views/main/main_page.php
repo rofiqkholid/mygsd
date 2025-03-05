@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyGSD - Service</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./assets/css/main_page.css">
-</head>
-<body class="bg-gray-100 min-h-screen">
-<?php $this->load->view('layout/header'); ?> <br><br><br>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<?php $this->load->view('layout/header'); ?> <br>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="./assets/css/main_page.css">
+
+<body class="bg-gray-100">
+    <div class="w-4/5 mx-auto flex flex-wrap justify-center gap-6 mb-20 mt-20">
         <!-- Lost and Found -->
-        <div class="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="w-80 bg-white shadow-lg rounded-lg overflow-hidden">
             <div class="px-6 py-4">
                 <h2 class="text-xl font-bold text-gray-800 mb-2">Lost and Found</h2>
                 <p class="text-gray-600">Laporan barang hilang dan ditemukan.</p>
@@ -23,7 +17,7 @@
         </div>
 
         <!-- E-Tiket -->
-        <div class="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="w-80 bg-white shadow-lg rounded-lg overflow-hidden">
             <div class="px-6 py-4">
                 <h2 class="text-xl font-bold text-gray-800 mb-2">E-Tiket</h2>
                 <p class="text-gray-600">Pelaporan dan pemantauan tiket elektronik.</p>
@@ -35,7 +29,7 @@
         </div>
 
         <!-- E-Permit -->
-        <div class="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="w-80 bg-white shadow-lg rounded-lg overflow-hidden">
             <div class="px-6 py-4">
                 <h2 class="text-xl font-bold text-gray-800 mb-2">E-Permit</h2>
                 <p class="text-gray-600">Pengajuan izin dan permohonan khusus.</p>
@@ -45,6 +39,12 @@
             </div>
         </div>
     </div>
+    <div class="w-full mx-auto bg-gray-200 p-20">
+        <h2 class="font-bold text-2xl mb-10">Berita</h2>
+        <span>Author</span><br>
+        <span class="text-gray-500 text-sm">01 Maret 2025</span>
+        <span class="font-bold"> - Kehilangan Motor</span>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente eveniet laudantium sit maiores ipsam pariatur, animi incidunt! Id corporis sit alias hic a? Officiis iste error fugit, quibusdam veniam animi rerum atque alias voluptas esse et reprehenderit exercitationem deserunt ducimus maxime voluptate natus dolorum rem, amet dolorem qui facere sequi? Dolore adipisci reiciendis dolorem atque eaque molestiae minima, magnam maxime! Cupiditate alias iusto voluptatibus at enim excepturi ipsum suscipit consectetur omnis numquam voluptatum, deleniti vitae amet, tempore modi accusantium exercitationem tempora optio iste inventore id. Repellat quasi quod ab ad explicabo aliquam porro molestiae iste? Odit dolorum impedit rerum sequi!</p>
+    </div>
 </body>
-
-</html>
+<?php $this->load->view('layout/footer'); ?>
