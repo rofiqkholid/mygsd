@@ -1,9 +1,7 @@
 {
   "dependencies": {
-<<<<<<< HEAD
-    "boostrap": "^2.0.0"
-=======
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "vite": "^6.2.0"
   },
   "name": "mygsdweb",
@@ -21,6 +19,5 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17"
->>>>>>> 1216e28 (Pesan commit baru, contoh: Perbaikan sidebar)
   }
 }

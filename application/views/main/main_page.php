@@ -1,5 +1,4 @@
 <?php $this->load->view('layout/header'); ?> <br>
-<script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="./assets/css/main_page.css">
 
 <body class="bg-gray-100">

@@ -1,5 +1,5 @@
+<script src="https://cdn.tailwindcss.com"></script>
 <head>
-    <link href="<?= base_url('./assets/css/output.css'); ?>" rel="stylesheet">
     <style>
         .sidebar {
             transition: transform 0.3s ease-in-out;

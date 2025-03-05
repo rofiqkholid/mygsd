@@ -5,7 +5,7 @@ table.dataTable-table tfoot tr th {
 
 table.table-bordered thead tr th,
 table.table-bordered tbody tr td {
-  @apply !border !border-solid !border-[#f6f7fa] dark:!border-[#191e3a];
+  @apply !border !border-solid !border-[#f6f7fa] dark: !border-[#191e3a];
 }
 
 table.table-compact thead tr th,
@@ -25,6 +25,7 @@ table.table-compact tbody tr td {
 .sticky-column table tbody tr td:first-child {
   @apply sticky z-[8] bg-[#f6f8fa] ltr:left-0 rtl:right-0 dark:bg-[#1a2941];
 }
+
 .sticky-column table thead tr th:nth-child(2),
 .sticky-column table tbody tr td:nth-child(2) {
   @apply sticky z-[8] bg-[#f6f8fa] ltr:left-[58px] rtl:right-[58px] dark:bg-[#1a2941];
@@ -38,10 +39,12 @@ table.table-compact tbody tr td {
 .dataTable-container {
   @apply overflow-auto;
 }
+
 .dataTable-top,
 .dataTable-container {
   @apply mb-5;
 }
+
 .dataTable-top,
 .dataTable-bottom {
   @apply flex flex-wrap items-center gap-4 font-medium;
@@ -57,12 +60,13 @@ table.table-compact tbody tr td {
 }
 
 .dataTable-pagination a {
-  @apply grid h-9 w-9 place-content-center rounded-full bg-white-light text-dark hover:!bg-primary hover:!text-white ltr:ml-1 rtl:mr-1 dark:bg-[#191e3a] dark:text-white-light;
+  @apply grid h-9 w-9 place-content-center rounded-full bg-white-light text-dark hover: !bg-primary hover: !text-white ltr:ml-1 rtl:mr-1 dark:bg-[#191e3a] dark:text-white-light;
 }
 
 .dataTable-pagination .active a {
   @apply cursor-default bg-primary text-white;
 }
+
 /* sorting */
 
 .dataTable-sorter {
@@ -84,6 +88,7 @@ table.table-compact tbody tr td {
   border-top: 5px solid #0e1726;
   bottom: 4px;
 }
+
 .dataTable-sorter::after {
   border-bottom: 5px solid #0e1726;
   border-top: 5px solid transparent;
@@ -93,6 +98,7 @@ table.table-compact tbody tr td {
 .dark .dataTable-sorter::after {
   border-bottom-color: #ffffff;
 }
+
 .dark .dataTable-sorter::before {
   border-top-color: #ffffff;
 }
@@ -154,6 +160,7 @@ table.table-compact tbody tr td {
   color: #888ea8;
   border-color: #17263c;
 }
+
 .dataTable-dropdown label {
   margin-bottom: 0;
 }
@@ -162,9 +169,11 @@ table.table-compact tbody tr td {
   .dataTable-bottom {
     flex-direction: column;
   }
+
   .ltr .dataTable-pagination {
     margin-left: 0;
   }
+
   .rtl .dataTable-pagination {
     margin-right: 0;
   }
