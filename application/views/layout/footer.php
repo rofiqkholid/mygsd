@@ -1,5 +1,5 @@
-<footer class="bg-gray-900 text-white py-8">
-    <div class="container mx-auto px-6 md:px-12 lg:px-24">
+<footer class="bg-gray-900 text-white">
+    <div class="container mx-auto px-6 md:px-12 lg:px-24 py-20 h-full">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
                 <h2 class="text-2xl font-bold">MyGSD</h2>
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <div class="text-center text-gray-500 text-sm mt-8 border-t border-gray-700 pt-4">
+    <div class="text-center text-gray-500 text-sm mt-8 border-t border-gray-700">
         &copy; 2025 MyGSD. Semua Hak Dilindungi.
     </div>
 </footer>
