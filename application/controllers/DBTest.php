@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * @property CI_DB_sqlsrv_driver $db
  */
-class TestDatabase extends CI_Controller {
+class DBTest extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->database();
