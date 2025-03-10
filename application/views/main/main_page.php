@@ -18,12 +18,13 @@
         <!-- E-Tiket -->
         <div class="w-80 bg-white shadow-lg rounded-lg overflow-hidden">
             <div class="px-6 py-4">
-                <h2 class="text-xl font-bold text-gray-800 mb-2">E-Tiket</h2>
+                <h2 class="text-xl font-bold text-gray-800 mb-2">E-Tiketing</h2>
                 <p class="text-gray-600">Pelaporan dan pemantauan tiket elektronik.</p>
             </div>
             <div class="px-6 py-4 bg-gray-100 flex flex-col sm:flex-row justify-between gap-2">
-                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full sm:w-auto">Laporkan</button>
-                <button class="bg-red-800 text-white px-4 py-2 rounded hover:bg-red-900 w-full sm:w-auto">Cari Tiket</button>
+                <a href="<?= site_url('./tiketing'); ?>">
+                    <button class="bg-red-800 text-white px-4 py-2 rounded hover:bg-red-900 w-full sm:w-auto">Pengajuan</button>
+                </a>
             </div>
         </div>
 
@@ -59,7 +60,7 @@
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente eveniet laudantium sit maiores ipsam pariatur, animi incidunt! Id corporis sit alias hic a? Officiis iste error fugit, quibusdam veniam animi rerum atque alias voluptas esse et reprehenderit exercitationem deserunt ducimus maxime voluptate natus dolorum rem, amet dolorem qui facere sequi? Dolore adipisci reiciendis dolorem atque eaque molestiae minima, magnam maxime! Cupiditate alias iusto voluptatibus at enim excepturi ipsum suscipit consectetur omnis numquam voluptatum, deleniti vitae amet, tempore modi accusantium exercitationem tempora optio iste inventore id. Repellat quasi quod ab ad explicabo aliquam porro molestiae iste? Odit dolorum impedit rerum sequi!</p>
         </div>
         <div class="view-all text-center">
-            <span class="text-gray-500 cursor-pointer">Lihat semua</span>
+            <span class="text-white bg-red-800 p-2 text-xs rounded cursor-pointer">Lihat Semua</span>
         </div>
     </div>
 
