@@ -40,6 +40,10 @@
 /* dragndrop */
 @import 'dragndrop.css';
 
+/* Boostrap icon */
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
