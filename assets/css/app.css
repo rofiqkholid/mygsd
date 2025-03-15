@@ -1,16 +1,8 @@
 /* perfect scrollbar */
 @import 'perfect-scrollbar.min.css';
-
-/* quill editor */
-@import 'quill-editor.css';
-
 /* full calendar */
 @import 'fullcalendar.css'; 
 
-/* swiper */
-@import 'swiper.css';
-
-/* sweetalert */
 @import 'sweetalert.css';
 
 /* tippy */
@@ -41,7 +33,9 @@
 @import 'dragndrop.css';
 
 /* Boostrap icon */
-@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "../../node_modules/bootstrap/bootstrap-icons.css";
+
+@import "sidebar.css";
 
 
 @tailwind base;
