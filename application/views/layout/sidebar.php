@@ -1,12 +1,11 @@
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="../assets/css/app.css">
-
+<link rel="stylesheet" href="<?= base_url('assets/css/app.css') ?>">
 
 <head>
     <style>
         .sidebar {
             transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
-            width: 15rem;
+            width: 17rem;
             overflow: hidden;
         }
 
@@ -34,7 +33,6 @@
 
         .nav-item i {
             transition: margin-left 0.3s ease-in-out;
-            margin-left: 0.5rem;
             min-width: 1.5rem;
             font-size: 1.5rem;
             text-align: center;
@@ -69,8 +67,7 @@
 
         .sidebar-logo img {
             transition: margin-left 0.3s ease-in-out;
-            margin-left: 0.5rem;
-            min-width: 2.6rem;
+            min-width: 2rem;
             font-size: 1.5rem;
             text-align: center;
             font-style: normal;
@@ -92,11 +89,9 @@
         }
 
         .sidebar.closed .sidebar-logo img {
-            margin-left: 8.9rem;
+            margin-left: 9.2rem;
 
         }
-
-
 
         @media (max-width: 768px) {
             .sidebar {
@@ -155,7 +150,7 @@
 
             function updateContentMargin() {
                 if (window.innerWidth > 768) {
-                    content.style.marginLeft = sidebar.classList.contains("closed") ? "0" : "11rem";
+                    content.style.marginLeft = sidebar.classList.contains("closed") ? "0" : "13rem";
                 } else {
                     content.style.marginLeft = "0";
                 }
