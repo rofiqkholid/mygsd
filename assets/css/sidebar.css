@@ -13,7 +13,6 @@
 
 .content {
     transition: margin-left 0.3s ease-in-out;
-    margin-left: 3rem;
     padding: 1rem;
 }
 
@@ -50,7 +49,7 @@
 }
 
 .sidebar.closed .nav-item i {
-    margin-left: 10rem;
+    margin-left: 9.8rem;
     font-size: 1.5rem;
     font-style: normal;
 }
@@ -83,7 +82,7 @@
 }
 
 .sidebar.closed .sidebar-logo img {
-    margin-left: 9.3rem;
+    margin-left: 9.8rem;
     height: 30px;
 
 }

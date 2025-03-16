@@ -1,39 +1,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <link rel="stylesheet" href="<?= base_url('assets/css/app.css') ?>">
+    <title>Monitoring Grafik Permit</title>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <style>
-        .glass-card {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 20px;
-            border-radius: 10px;
-        }
-    </style>
 </head>
 
 <body class="bg-gray-100 flex">
     <?php $this->load->view('layout/sidebar'); ?>
-    <div id="content" class="content w-full p-6">
-        <h1 class="text-3xl font-bold mb-8 text-gray-800">E-Permit Monitoring</h1>
 
-        <div class="glass-card shadow-lg p-6">
-            <h2 class="text-xl mb-4 text-gray-800">E-Permit Data Per Tahun</h2>
+    <div id="content" class="content w-full p-6 ml-[5rem] mr-[2rem]">
+        <h1 class="text-2xl font-bold mb-6 text-gray-800">📊 E-Permit Monitoring</h1>
+
+        <!-- Chart utama -->
+        <div class="shadow-xl p-6 bg-white rounded-2xl grid grid-cols-1 md:grid-cols-1">
+            <h2 class="text-lg font-bold mb-4 text-gray-700">📅 E-Permit Data Per Tahun</h2>
             <div id="permitChart"></div>
         </div>
+
+        <!-- 2 Chart kecil -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div class="shadow-lg p-6 bg-white rounded-2xl">
+                <h2 class="text-lg font-bold mb-4 text-gray-700">📊 Data Per Bulan</h2>
+                <div id="permitChart2"></div>
+            </div>
+            <div class="shadow-lg p-6 bg-white rounded-2xl">
+                <h2 class="text-lg font-bold mb-4 text-gray-700">📊 Tren Per Tahun</h2>
+                <div id="permitChart3"></div>
+            </div>
+        </div>
+        <br><br>
     </div>
 
     <script>
+        // Opsi Chart
         var options = {
             series: [{
-                name: "Permit",
-                data: [2, 7, 15, 20, 18, 25, 30, 28, 24, 22, 20, 35]
-            }],
+                    name: "Izin Masuk",
+                    data: [2, 7, 15, 20, 18, 25, 30, 28, 24, 22, 20, 35]
+                },
+                {
+                    name: "Terima",
+                    data: [0, 0, 4, 6, 1, 9, 0, 0, 0, 3, 5, 1]
+                },
+                {
+                    name: "Tolak",
+                    data: [0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 5, 0]
+                },
+                {
+                    name: "Pending",
+                    data: [0, 0, 0, 1, 0, 0, 4, 0, 0, 3, 1, 0]
+                }
+            ],
             chart: {
-                height: 350,
                 type: 'area',
+                height: 350,
+                background: "#ffffff",
                 zoom: {
                     enabled: false
                 },
@@ -42,42 +64,60 @@
                 }
             },
             dataLabels: {
-                enabled: true,
-                style: {
-                    fontSize: '14px',
-                    colors: ['#333']
-                }
+                enabled: false
             },
             stroke: {
                 curve: 'smooth',
-                width: 2
+                width: 3
             },
             markers: {
-                size: 6,
+                size: 5,
                 hover: {
-                    size: 8
+                    size: 7
                 }
             },
             tooltip: {
-                theme: 'dark',
-                x: {
-                    show: true
-                },
+                theme: 'dark'
             },
             xaxis: {
-                categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+                categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                labels: {
+                    style: {
+                        colors: '#666'
+                    }
+                }
             },
-            colors: ['#ff9800'],
+            colors: ['#007bff', '#28a745', '#dc3545', '#ffc107'],
+            fill: {
+                type: "gradient",
+                gradient: {
+                    shadeIntensity: 0.4,
+                    opacityFrom: 0.6,
+                    opacityTo: 0.5,
+                    stops: [0, 90, 100]
+                }
+            },
             legend: {
-                show: true,
-                position: 'top',
-                horizontalAlign: 'right'
+                position: 'bottom',
+                horizontalAlign: 'center',
+                fontSize: '12px',
+                labels: {
+                    colors: '#333'
+                },
+                itemMargin: {
+                    horizontal: 30,
+                    vertical: 10
+                }
             }
+
         };
 
         var chart = new ApexCharts(document.querySelector("#permitChart"), options);
         chart.render();
-        
+        var chart = new ApexCharts(document.querySelector("#permitChart2"), options);
+        chart.render();
+        var chart = new ApexCharts(document.querySelector("#permitChart3"), options);
+        chart.render();
     </script>
 </body>
 

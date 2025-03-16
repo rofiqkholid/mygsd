@@ -1,19 +1,22 @@
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="<?= base_url('assets/css/app.css') ?>">
 
 <body class="bg-gray-200">
     <div id="sidebar" class="sidebar fixed left-0 top-0 h-full bg-white shadow-md dark:bg-gray-900 p-4 closed z-50">
-        <div class="sidebar-logo flex items-center p-2 m-4">
+        <div class="sidebar-logo flex items-center p-2 m-2">
             <img src="<?= base_url('public/assets/img/logo_college.png') ?>" alt="Logo" class="h-8 w-7">
-            <span class="ml-4">MyGSD Service</span>
+            <span>MyGSD Service</span>
+            <button id="toggleGeser">
+                <i class="bi bi-chevron-double-right text-xl flex ml-4 rounded p-1 text-red-800 mt-1"></i>
+            </button>
         </div>
         <div class="menu-dashboard">
             <ul class="mt-10">
-                <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-2 cursor-pointer">
-                    <i class="bi bi-house-fill"></i>
-                    <span>Dashboard</span>
-                </li>
-
+                <a href="<?= base_url('/dashboard') ?>">
+                    <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-2 cursor-pointer">
+                        <i class="bi bi-house-fill"></i>
+                        <span>Dashboard</span>
+                    </li>
+                </a>
                 <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-2 cursor-pointer" onclick="toggleDropdown('dropdown-tiket')">
                     <i class="bi bi-ticket-perforated-fill"></i>
                     <span>E-Tiketing</span>
@@ -26,7 +29,7 @@
                         </li>
                         <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
                             <div class="dash w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
-                            <span class="subtitle ml-3 text-[13px]">Konfirmasi E-Tiket</span>
+                            <span class="subtitle ml-3 text-[13px]">Approval</span>
                         </li>
                     </div>
                 </ul>
@@ -129,27 +132,45 @@
         document.addEventListener("DOMContentLoaded", function() {
             const sidebar = document.getElementById("sidebar");
             const content = document.getElementById("content");
+            const dropdowns = document.querySelectorAll('.dropdown');
+            const toggleButton = document.getElementById("toggleGeser");
 
-            function updateContentMargin() {
-                if (window.innerWidth > 768) {
-                    content.style.marginLeft = sidebar.classList.contains("closed") ? "0" : "13rem";
+            let isShifted = false;
+            toggleButton.addEventListener("click", function() {
+                isShifted = !isShifted;
+
+                if (isShifted) {
+                    content.style.marginLeft = "10rem";
                 } else {
-                    content.style.marginLeft = "0";
+                    content.style.marginLeft = "0rem";
+                }
+            });
+
+            function checkSidebar() {
+                if (sidebar.classList.contains("closed")) {
+                    content.style.marginLeft = "";
+                    isShifted = false;
                 }
             }
 
             sidebar.addEventListener("mouseenter", () => {
                 sidebar.classList.remove("closed");
-                updateContentMargin();
             });
 
             sidebar.addEventListener("mouseleave", () => {
                 sidebar.classList.add("closed");
-                updateContentMargin();
+                dropdowns.forEach(dropdown => {
+                    dropdown.style.maxHeight = "0px";
+                    dropdown.style.opacity = "0";
+                });
             });
 
-            window.addEventListener("resize", updateContentMargin);
-            updateContentMargin();
+            const observer = new MutationObserver(checkSidebar);
+            observer.observe(sidebar, {
+                attributes: true
+            });
+
+            
         });
     </script>
 </body>

@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <style>
-        .glass-card {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-    </style>
+    <title>MyGSD - Dashboard Monitoring</title>
+    <link rel="stylesheet" href="<?= base_url('assets/css/app.css') ?>">
 </head>
-<body class="bg-gray-100 flex">
-    <?php $this->load->view('layout/sidebar'); ?>
-    <div id="content" class="content w-full p-6">
+<body class="bg-gray-200 flex">
+<?php $this->load->view('layout/sidebar'); ?>
+
+    <div id="content" class="content w-full p-6 ml-[5rem]">
         <h1 class="text-3xl font-bold mb-8 text-gray-800">General Service Division Dashboard Monitoring</h1>
 
         <!-- Bagian Teratas -->
@@ -27,7 +16,7 @@
                 ["Total Penemuan", 23, "bg-green-600", "bi-search"],
                 ["Total Perizinan", 226, "bg-yellow-600", "bi-file-earmark-check"]
             ];
-            
+
             foreach ($topCards as $item) {
                 echo '
                     <div class="glass-card ' . $item[2] . ' shadow-lg hover:shadow-xl transition-all duration-300 p-6 rounded-xl text-white flex flex-col items-center justify-center h-44 transform hover:scale-105">
@@ -50,7 +39,7 @@
                     ["Tiket di Setujui", 2, "bg-blue-800", "bi-check-circle"],
                     ["Tiket Selesai", 63, "bg-blue-800", "bi-clipboard-check"]
                 ];
-                
+
                 foreach ($tiketData as $item) {
                     echo '
                         <div class="glass-card ' . $item[2] . ' shadow-lg hover:shadow-xl transition-all duration-300 p-6 rounded-xl text-white flex flex-col items-center justify-center h-44 transform hover:scale-105">
@@ -73,7 +62,7 @@
                     ["Total Klaim", 20, "bg-green-600", "bi-check-square"],
                     ["Karantina", 3, "bg-green-600", "bi-lock"]
                 ];
-                
+
                 foreach ($penemuanData as $item) {
                     echo '
                         <div class="glass-card ' . $item[2] . ' shadow-lg hover:shadow-xl transition-all duration-300 p-6 rounded-xl text-white flex flex-col items-center justify-center h-44 transform hover:scale-105">
@@ -96,7 +85,7 @@
                     ["Izin di Setujui", 200, "bg-yellow-600", "bi-check-circle"],
                     ["Izin di Pending", 0, "bg-yellow-600", "bi-hourglass"]
                 ];
-                
+
                 foreach ($izinData as $item) {
                     echo '
                         <div class="glass-card ' . $item[2] . ' shadow-lg hover:shadow-xl transition-all duration-300 p-6 rounded-xl text-white flex flex-col items-center justify-center h-44 transform hover:scale-105">
@@ -108,6 +97,8 @@
                 ?>
             </div>
         </div>
+        <br><br>
     </div>
 </body>
+
 </html>
