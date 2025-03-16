@@ -9,52 +9,87 @@
         </div>
         <div class="menu-dashboard">
             <ul class="mt-10">
-                <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-4 cursor-pointer">
+                <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-2 cursor-pointer">
                     <i class="bi bi-house-fill"></i>
                     <span>Dashboard</span>
                 </li>
 
-                <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-4 cursor-pointer" onclick="toggleDropdown('dropdown-tiket')">
+                <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-2 cursor-pointer" onclick="toggleDropdown('dropdown-tiket')">
                     <i class="bi bi-ticket-perforated-fill"></i>
                     <span>E-Tiketing</span>
                 </li>
-                <ul id="dropdown-tiket" class="dropdown hidden transition-all duration-300 ease-in-out transform -translate-y-2 opacity-0">
-                    <li class="p-2 hover:text-red-800 cursor-pointer">Pesan Tiket</li>
-                    <li class="p-2 hover:text-red-800 cursor-pointer">Riwayat Tiket</li>
+                <ul id="dropdown-tiket" class="dropdown overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+                    <div class="pb-7">
+                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
+                        </li>
+                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
+                        </li>
+                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
+                        </li>
+                    </div>
                 </ul>
-
-                <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-4 cursor-pointer" onclick="toggleDropdown('dropdown-permit')">
+                <!-- E-Permit -->
+                <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-2 cursor-pointer" onclick="toggleDropdown('dropdown-permit')">
                     <i class="bi bi-ui-checks"></i>
                     <span>E-Permit</span>
                 </li>
-                <ul id="dropdown-permit" class="dropdown hidden transition-all duration-300 ease-in-out transform -translate-y-2 opacity-0">
-                    <li class="p-2 hover:text-red-800 cursor-pointer">Ajukan Permit</li>
-                    <li class="p-2 hover:text-red-800 cursor-pointer">Riwayat Permit</li>
-                </ul>
-
-                <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-4 cursor-pointer" onclick="toggleDropdown('dropdown-lost')">
-                    <i class="bi bi-box-seam-fill"></i>
-                    <span>Lost and Found</span>
-                </li>
-                <ul id="dropdown-lost" class="dropdown hidden transition-all duration-300 ease-in-out transform -translate-y-2 opacity-0">
-                    <div class="ml-10 flex">
-                        <i class="bi bi-dash"></i>
-                        <li class="p-2 hover:text-red-800 cursor-pointer">Laporkan Barang Hilang</li>
+                <ul id="dropdown-permit" class="dropdown overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+                    <div class="pb-7">
+                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
+                        </li>
+                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
+                        </li>
+                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
+                        </li>
                     </div>
-                    <li class="p-2 hover:text-red-800 cursor-pointer">Cek Barang Ditemukan</li>
                 </ul>
+            </ul>
 
-                <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-4">
-                    <i class="bi bi-gear-fill"></i>
-                    <span>Settings</span>
+            <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-2 cursor-pointer" onclick="toggleDropdown('dropdown-lost')">
+                <i class="bi bi-box-seam-fill"></i>
+                <span>Lost and Found</span>
+            </li>
+            <ul id="dropdown-lost" class="dropdown overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+            <div class="pb-7">
+                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
+                        </li>
+                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
+                        </li>
+                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
+                        </li>
+                    </div>
+                </ul>
+            </ul>
+
+            <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-2">
+                <i class="bi bi-gear-fill"></i>
+                <span>Settings</span>
+            </li>
+
+            <a href="./">
+                <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-2">
+                    <i class="bi bi-door-open-fill"></i>
+                    <span>Logout</span>
                 </li>
-
-                <a href="./">
-                    <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-4">
-                        <i class="bi bi-door-open-fill"></i>
-                        <span>Logout</span>
-                    </li>
-                </a>
+            </a>
             </ul>
         </div>
     </div>
@@ -66,17 +101,21 @@
     <script>
         function toggleDropdown(id) {
             const dropdown = document.getElementById(id);
+            const allDropdowns = document.querySelectorAll('.dropdown');
 
-            if (dropdown.classList.contains("hidden")) {
-                dropdown.classList.remove("hidden");
-                setTimeout(() => {
-                    dropdown.classList.remove("opacity-0", "-translate-y-2");
-                }, 10);
+            allDropdowns.forEach(menu => {
+                if (menu !== dropdown) {
+                    menu.style.maxHeight = "0px";
+                    menu.style.opacity = "0";
+                }
+            });
+
+            if (dropdown.style.maxHeight === "0px" || !dropdown.style.maxHeight) {
+                dropdown.style.maxHeight = dropdown.scrollHeight + "px";
+                dropdown.style.opacity = "1";
             } else {
-                dropdown.classList.add("opacity-0", "-translate-y-2");
-                setTimeout(() => {
-                    dropdown.classList.add("hidden");
-                }, 200);
+                dropdown.style.maxHeight = "0px";
+                dropdown.style.opacity = "0";
             }
         }
 
