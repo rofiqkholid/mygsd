@@ -5,3 +5,8 @@ $route['default_controller'] = 'welcome';
 
 $route['404_override'] = 'NotFound404';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['epermit'] = 'EPermit';
+$route['epermit/monitoring_permit'] = 'EPermit/monitoring_permit';
+$route['epermit/permit_grafik'] = 'EPermit/permit_grafik';
+

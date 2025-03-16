@@ -21,16 +21,12 @@
                 <ul id="dropdown-tiket" class="dropdown overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
                     <div class="pb-7">
                         <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
-                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
-                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
+                            <div class="dash w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                            <span class="subtitle ml-3 text-[13px]">Monitoring E-Tiket</span>
                         </li>
                         <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
-                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
-                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
-                        </li>
-                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
-                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
-                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
+                            <div class="dash w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                            <span class="subtitle ml-3 text-[13px]">Konfirmasi E-Tiket</span>
                         </li>
                     </div>
                 </ul>
@@ -41,18 +37,18 @@
                 </li>
                 <ul id="dropdown-permit" class="dropdown overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
                     <div class="pb-7">
-                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
-                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
-                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
-                        </li>
-                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
-                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
-                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
-                        </li>
-                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
-                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
-                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
-                        </li>
+                        <a href="<?= base_url('epermit/monitoring_permit') ?>">
+                            <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                                <div class="dash w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                                <span class="subtitle ml-3 text-[13px]">Monitoring</span>
+                            </li>
+                        </a>
+                        <a href="<?= base_url('epermit/permit_grafik') ?>">
+                            <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                                <div class="dash w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                                <span class="subtitle ml-3 text-[13px]">Grafik </span>
+                            </li>
+                        </a>
                     </div>
                 </ul>
             </ul>
@@ -62,21 +58,21 @@
                 <span>Lost and Found</span>
             </li>
             <ul id="dropdown-lost" class="dropdown overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
-            <div class="pb-7">
-                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
-                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
-                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
-                        </li>
-                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
-                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
-                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
-                        </li>
-                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
-                            <div class="w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
-                            <span class="ml-3 text-[13px]">Monitoring Tiket</span>
-                        </li>
-                    </div>
-                </ul>
+                <div class="pb-7">
+                    <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                        <div class="dash w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                        <span class="subtitle ml-3 text-[13px]">Monitoring</span>
+                    </li>
+                    <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                        <div class="dash w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                        <span class="subtitle ml-3 text-[13px]">Grafik</span>
+                    </li>
+                    <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                        <div class="dash w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                        <span class="subtitle ml-3 text-[13px]">Detail Kehilangan</span>
+                    </li>
+                </div>
+            </ul>
             </ul>
 
             <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-2">
@@ -99,6 +95,17 @@
     </div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("keydown", function(event) {
+                if ((event.ctrlKey && event.key === "c") || (event.metaKey && event.key === "c")) {
+                    event.preventDefault();
+                }
+            });
+            document.addEventListener("selectstart", function(event) {
+                event.preventDefault();
+            });
+        });
+
         function toggleDropdown(id) {
             const dropdown = document.getElementById(id);
             const allDropdowns = document.querySelectorAll('.dropdown');
