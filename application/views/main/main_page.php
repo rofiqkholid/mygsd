@@ -10,7 +10,7 @@
                 <p class="text-gray-600">Laporan barang hilang dan ditemukan.</p>
             </div>
             <div class="px-6 py-4 bg-gray-100 flex flex-col sm:flex-row justify-between gap-2">
-                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full sm:w-auto">Laporkan</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full sm:w-auto">Menemukan</button>
                 <button class="bg-red-800 text-white px-4 py-2 rounded hover:bg-red-900 w-full sm:w-auto">Cari Barang</button>
             </div>
         </div>
