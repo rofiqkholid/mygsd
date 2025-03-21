@@ -2,11 +2,8 @@
 <style>
     select {
         -webkit-appearance: none;
-        /* Untuk Safari dan Chrome */
         -moz-appearance: none;
-        /* Untuk Firefox */
         appearance: none;
-        /* Untuk browser lainnya */
     }
 
     @media (max-width: 768px) {
@@ -18,7 +15,7 @@
     }
 </style>
 <div class="form-container mt-20 px-40">
-    <h2 class="mb-4 text-2xl font-bold">Form Pengaduan</h2>
+    <h2 class="mb-4 text-2xl font-bold">Form e-Tiketing</h2>
 
     <?php if ($this->session->flashdata('success')): ?>
         <div class="p-4 mb-4 text-green-800 bg-green-200 rounded"> <?= $this->session->flashdata('success'); ?> </div>
@@ -31,7 +28,7 @@
     <?= form_open_multipart('pengaduan/submit', ['class' => 'needs-validation', 'novalidate' => '']); ?>
 
     <div class="my-4">
-        <label for="kategori" class="block font-medium">Kategori Pengaduan</label>
+        <label for="kategori" class="block font-medium">Kategori Layanan</label>
         <select name="kategori" class="w-full p-2 mt-2 border rounded" required>
             <option value="">Pilih Layanan</option>
             <option value="peminjaman_ruangan">Peminjaman Ruangan</option>
@@ -45,20 +42,20 @@
             <option value="perbaikan_toilet">Perbaikan Toilet / Kamar Mandi</option>
             <option value="perbaikan_pintu">Perbaikan Pintu / Jendela / Kunci</option>
             <option value="pembersihan_ruangan">Permintaan Pembersihan Ruangan / Area Kampus</option>
-            <option value="pengaduan_sampah">Pengaduan Sampah Menumpuk</option>
             <option value="laporan_kerusakan">Laporan Kerusakan di Area Kampus</option>
+            <option value="lainnya">Lainnya</option>
         </select>
         <div class="text-red-500 text-sm hidden">Silakan pilih kategori pengaduan.</div>
     </div>
 
     <div class="mb-4">
-        <label for="deskripsi" class="block font-medium">Deskripsi Masalah</label>
+        <label for="deskripsi" class="block font-medium">Deskripsi</label>
         <textarea name="deskripsi" class="w-full p-2 border rounded mt-2" rows="4" required></textarea>
-        <div class="text-red-500 text-sm hidden">Silakan isi deskripsi minimal 10 karakter.</div>
+        <div class="text-red-500 text-sm">Silakan isi deskripsi.</div>
     </div>
 
     <div class="mb-4">
-        <label for="lokasi" class="block font-medium">Lokasi Kejadian, Ruangan dan lain-lain.</label>
+        <label for="lokasi" class="block font-medium">Lokasi Terkait</label>
         <select name="lokasi" class="w-full p-2 border rounded mt-2" required>
             <option value="">Pilih Lokasi</option>
             <option value="gedung_a">Gedung A</option>
