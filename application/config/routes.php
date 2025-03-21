@@ -19,5 +19,5 @@ $route['epermit/monitoring_permit'] = 'PermitController/monitoring_permit';
 $route['epermit/permit_grafik'] = 'PermitController/permit_grafik';
 
 // Client Routes
-$route['dashboard/main'] = 'MainController';
+$route['main'] = 'MainController';
 
