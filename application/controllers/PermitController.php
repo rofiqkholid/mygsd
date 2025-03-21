@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class EPermit extends CI_Controller
+class PermitController extends CI_Controller
 {
     public function monitoring_permit()
     {

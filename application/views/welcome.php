@@ -31,11 +31,11 @@
         <div class="introduce flex items-center justify-center h-screen text-center relative z-10">
             <div class="flex-block">
                 <h2 class="font-bold text-5xl mb-20 text-white">Welcome to MyGSD Web Service and Report</h2>
-                <a href="<?= site_url('./main'); ?>">
+                <a href="<?= site_url('dashboard/main'); ?>">
                     <span class="bg-red-800 p-3 text-white rounded-lg cursor-pointer">Get Started</span>
                 </a>
             </div>
-        </div>
+        </div>1
     </div>
 
     <?php $this->load->view('layout/service'); ?>

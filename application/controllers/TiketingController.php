@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tiketing extends CI_Controller {
+class TiketingController extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->helper('url'); 

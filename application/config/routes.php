@@ -1,12 +1,19 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'WelcomeController';
 
 $route['404_override'] = 'NotFound404';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['epermit'] = 'EPermit';
-$route['epermit/monitoring_permit'] = 'EPermit/monitoring_permit';
-$route['epermit/permit_grafik'] = 'EPermit/permit_grafik';
+
+// Admin Routes
+$route['dashboard'] = 'DashboardController';
+
+$route['epermit'] = 'PermitController';
+$route['epermit/monitoring_permit'] = 'PermitController/monitoring_permit';
+$route['epermit/permit_grafik'] = 'PermitController/permit_grafik';
+
+// Client Routes
+$route['dashboard/main'] = 'MainController';
 
