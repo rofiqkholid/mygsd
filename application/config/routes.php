@@ -6,6 +6,10 @@ $route['default_controller'] = 'WelcomeController';
 $route['404_override'] = 'NotFound404';
 $route['translate_uri_dashes'] = FALSE;
 
+// Auth Routes
+$route['auth/login'] = 'AuthController';
+$route['logout'] = 'AuthController/logout';
+
 
 // Admin Routes
 $route['dashboard'] = 'DashboardController';

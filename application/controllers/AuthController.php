@@ -5,6 +5,6 @@ class AuthController extends CI_Controller
 {
     public function index()
     {
-        $this->load->view('auth/page_login');
+        $this->load->view('auth/login/page_login');
     }
 }

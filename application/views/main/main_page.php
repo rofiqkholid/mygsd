@@ -1,3 +1,9 @@
+<?php
+if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], ['mahasiswa', 'dosen'])) {
+    redirect('auth/login'); 
+    exit;
+}
+?>
 <?php $this->load->view('layout/header'); ?> <br>
 <link rel="stylesheet" href="./assets/css/main_page.css">
 
