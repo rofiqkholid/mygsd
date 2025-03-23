@@ -1,9 +1,11 @@
 <?php
-if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], ['mahasiswa', 'dosen'])) {
+
+if (!$this->session->userdata('role') || !in_array($this->session->userdata('role'), ['mahasiswa', 'dosen'])) {
     redirect('auth');
     exit;
 }
 ?>
+
 <?php $this->load->view('layout/header'); ?> <br>
 
 <body class="bg-gray-100">
@@ -66,6 +68,10 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], ['mahasiswa', 'dos
         </div>
         <div class="view-all text-center">
             <span class="text-white bg-red-800 p-2 text-xs rounded cursor-pointer">Lihat Semua</span>
+            
+            <!-- <a href="<?= site_url('auth/logout'); ?>">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Logout</button>
+            </a> -->
         </div>
     </div>
 

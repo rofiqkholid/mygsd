@@ -8,7 +8,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 // Auth Routes
 $route['auth'] = 'AuthController/index';
-$route['logout'] = 'AuthController/logout';
+$route['auth/logout'] = 'AuthController/logout';
 $route['auth/proses_login'] = 'AuthController/proses_login';
 
 // Admin Routes

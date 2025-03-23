@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+/**
+ * @property CI_Input $input
+ * @property CI_DB_query_builder $db
+ * @property CI_Session $session
+ */
 class AuthController extends CI_Controller
 {
     public function __construct()
@@ -21,10 +25,8 @@ class AuthController extends CI_Controller
         $no_identity = $this->input->post('no_identity');
         $password = $this->input->post('password');
 
-        // Hash password dengan SHA-256 dalam bentuk string
         $hashed_password = hash('sha256', $password);
 
-        // Query untuk mencocokkan IdentityNum dan Password
         $query = $this->db->query(
             "SELECT * FROM users WHERE IdentityNum = ? AND Password = ?",
             array($no_identity, $hashed_password)
@@ -49,5 +51,16 @@ class AuthController extends CI_Controller
             $this->session->set_flashdata('error', 'Invalid Identity Number or Password');
             redirect('auth');
         }
+    }
+    public function logout()
+    {
+        $this->session->sess_destroy();
+
+        header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Pragma: no-cache");
+
+        redirect('auth');
+        exit;
     }
 }
