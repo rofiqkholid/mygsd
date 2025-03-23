@@ -15,11 +15,18 @@
         <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Welcome Back</h2>
             <p class="text-center text-gray-600 mb-4">Please login to your account</p>
-            <form action="main" method="POST" class="space-y-6">
+
+            <?php if ($this->session->flashdata('error')): ?>
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-md mb-4">
+                    <?php echo $this->session->flashdata('error'); ?>
+                </div>
+            <?php endif; ?>
+
+            <form action="<?php echo site_url('auth/proses_login'); ?>" method="POST" class="space-y-6">
                 <div>
-                    <label for="npm" class="block text-sm font-medium text-gray-700">Student ID (NPM)</label>
-                    <input type="text" id="npm" name="npm" placeholder="Enter your NPM" required
-                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <label for="no_identity" class="block text-sm font-medium text-gray-700">No Identity / NPM / NIK</label>
+                    <input type="text" id="no_identity" name="no_identity" placeholder="Enter your NPM" required
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-50 0 focus:border-blue-500">
                 </div>
                 <div>
                     <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
@@ -57,7 +64,6 @@
             const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordField.setAttribute('type', type);
 
-            // Toggle icon
             this.innerHTML = type === 'password' 
                 ? `<i class="bi bi-eye"></i>`
                 : `<i class="bi bi-eye-slash"></i>`;

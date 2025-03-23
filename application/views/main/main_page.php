@@ -1,11 +1,10 @@
 <?php
 if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], ['mahasiswa', 'dosen'])) {
-    redirect('auth/login'); 
+    redirect('auth');
     exit;
 }
 ?>
 <?php $this->load->view('layout/header'); ?> <br>
-<link rel="stylesheet" href="./assets/css/main_page.css">
 
 <body class="bg-gray-100">
     <div class="w-4/5 mx-auto flex flex-wrap justify-center gap-6 mb-20 mt-20">
@@ -28,7 +27,7 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], ['mahasiswa', 'dos
                 <p class="text-gray-600">Pelaporan dan pemantauan tiket elektronik.</p>
             </div>
             <div class="px-6 py-4 bg-gray-100 flex flex-col sm:flex-row justify-between gap-2">
-                <a href="<?= site_url('./tiketing'); ?>">
+                <a href="<?= site_url('tiketing'); ?>">
                     <button class="bg-red-800 text-white px-4 py-2 rounded hover:bg-red-900 w-full sm:w-auto">Pengajuan</button>
                 </a>
             </div>
