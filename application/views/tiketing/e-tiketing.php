@@ -38,7 +38,7 @@
         </div>
     <?php endif; ?>
 
-    <?= form_open_multipart('pengaduan/submit', ['class' => 'needs-validation', 'novalidate' => '', 'id' => 'pengaduan-form']); ?>
+    <?= form_open_multipart('tiketing/e-tiketing', ['class' => 'needs-validation', 'novalidate' => '', 'id' => 'pengaduan-form']); ?>
 
     <div class="my-4">
         <label for="kategori" class="block font-medium">Kategori Layanan</label>
@@ -115,8 +115,8 @@
         </div>
 
         <div id="preview-container" class="mt-4 hidden">
-            <h3 class="text-lg font-medium mb-2">Pratinjau Foto</h3>
-            <div id="preview-images" class="grid grid-cols-3 gap-4"></div>
+            <div id="preview-images" class="flex gap-4"></div>
+            <div id="preview-file-names" class="mt-2 text-sm text-gray-600"></div>
         </div>
 
         <div id="file-names" class="mt-2 text-sm text-gray-600"></div>
@@ -132,6 +132,7 @@
         const uploadFotoInput = document.getElementById('upload-foto');
         const previewContainer = document.getElementById('preview-container');
         const previewImages = document.getElementById('preview-images');
+        const previewFileNames = document.getElementById('preview-file-names');
         const fileNamesContainer = document.getElementById('file-names');
 
         uploadFotoInput.addEventListener('change', function(event) {
@@ -154,7 +155,8 @@
 
         function takeSnapshot() {
             Webcam.snap(function(data_uri) {
-                addImageToPreview(data_uri, `capture_image${previewImages.childElementCount + 1}`);
+                const imageName = `capture_image${previewImages.childElementCount + 1}.jpg`;
+                addImageToPreview(data_uri, imageName);
                 Webcam.reset();
                 document.getElementById('camera-container').classList.add('hidden');
                 document.getElementById('open-camera-btn').classList.remove('hidden');
@@ -193,10 +195,11 @@
             imgContainer.appendChild(img);
 
             const removeButton = document.createElement('button');
-            removeButton.innerHTML = '&times;';
-            removeButton.classList.add('absolute', 'top-1', 'right-1', 'bg-red-600', 'text-white', 'rounded-full', 'w-6', 'h-6', 'flex', 'items-center', 'justify-center', 'hover:bg-red-700');
+            removeButton.innerHTML = '<i class="bi bi-x"></i>';
+            removeButton.classList.add('absolute', '-top-1', '-right-1', 'text-red-500', 'rounded-full', 'text-xl', 'w-7', 'h-7', 'flex', 'items-center', 'justify-center');
             removeButton.addEventListener('click', function() {
                 previewImages.removeChild(imgContainer);
+                updateFileNames();
                 if (previewImages.childElementCount === 0) {
                     previewContainer.classList.add('hidden');
                 }
@@ -204,8 +207,64 @@
             imgContainer.appendChild(removeButton);
 
             previewImages.appendChild(imgContainer);
+            updateFileNames();
             previewContainer.classList.remove('hidden');
+        }
+
+        function updateFileNames() {
+            previewFileNames.innerHTML = '';
+            Array.from(previewImages.children).forEach((imgContainer, index) => {
+                const img = imgContainer.querySelector('img');
+                const fileName = document.createElement('p');
+                fileName.textContent = img.alt;
+                fileName.classList.add('text-gray-600', 'text-sm');
+                previewFileNames.appendChild(fileName);
+            });
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
 </div>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $kategori = $this->input->post('kategori');
+    $deskripsi = $this->input->post('deskripsi');
+    $lokasi = $this->input->post('lokasi');
+    $uploadedFiles = $_FILES['upload_foto'];
+
+    $uploadPath = FCPATH . 'assets/uploads/' . date('Y/m/d/H');
+    if (!is_dir($uploadPath)) {
+        mkdir($uploadPath, 0777, true);
+    }
+
+    $uploadedFilePaths = [];
+    if (!empty($uploadedFiles['name'][0])) {
+        for ($i = 0; $i < count($uploadedFiles['name']); $i++) {
+            $fileName = time() . '_' . $uploadedFiles['name'][$i];
+            $fileTmpName = $uploadedFiles['tmp_name'][$i];
+            $fileDestination = $uploadPath . '/' . $fileName;
+
+            if (move_uploaded_file($fileTmpName, $fileDestination)) {
+                $uploadedFilePaths[] = 'assets/uploads/' . date('Y/m/d/H') . '/' . $fileName;
+            }
+        }
+    }
+
+    // Simpan data ke database
+    $data = [
+        'kategori' => $kategori,
+        'deskripsi' => $deskripsi,
+        'lokasi' => $lokasi,
+        'foto' => json_encode($uploadedFilePaths), // Simpan path foto dalam format JSON
+        'created_at' => date('Y-m-d H:i:s'),
+    ];
+
+    if ($this->db->insert('pengaduan', $data)) {
+        $this->session->set_flashdata('success', 'Pengaduan berhasil dikirim.');
+    } else {
+        $this->session->set_flashdata('error', 'Terjadi kesalahan saat mengirim pengaduan.');
+    }
+
+    redirect('tiketing/e-tiketing');
+}
+?>
