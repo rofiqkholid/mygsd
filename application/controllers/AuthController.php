@@ -48,7 +48,7 @@ class AuthController extends CI_Controller
                 redirect('dashboard');
             }
         } else {
-            $this->session->set_flashdata('error', 'Invalid Identity Number or Password');
+            $this->session->set_flashdata('error', 'GAGAL LOGIN: Cek kembali No. Identitas dan Password Anda!');
             redirect('auth');
         }
     }
