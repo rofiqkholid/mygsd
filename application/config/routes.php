@@ -23,4 +23,5 @@ $route['main'] = 'MainController';
 
 // Tiketing Routes
 $route['tiketing'] = 'TiketingController';
+$route['tiketing/submit'] = 'TiketingController/submit_tiketing';
 

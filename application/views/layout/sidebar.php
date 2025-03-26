@@ -83,7 +83,7 @@
                 <span>Settings</span>
             </li>
 
-            <a href="./">
+            <a href="<?= site_url('auth/logout'); ?>">
                 <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-2">
                     <i class="bi bi-door-open-fill"></i>
                     <span>Logout</span>

@@ -1,3 +1,10 @@
+<?php
+
+if (!$this->session->userdata('role') || !in_array($this->session->userdata('role'), ['mahasiswa', 'dosen'])) {
+    redirect('auth');
+    exit;
+}
+?>
 <?php $this->load->view('layout/header'); ?> <br>
 
 <style>
@@ -38,7 +45,7 @@
         </div>
     <?php endif; ?>
 
-    <?= form_open_multipart('tiketing/e-tiketing', ['class' => 'needs-validation', 'novalidate' => '', 'id' => 'pengaduan-form']); ?>
+    <?= form_open_multipart('tiketing/submit', ['class' => 'needs-validation', 'novalidate' => '', 'id' => 'pengaduan-form']); ?>
 
     <div class="my-4">
         <label for="kategori" class="block font-medium">Kategori Layanan</label>

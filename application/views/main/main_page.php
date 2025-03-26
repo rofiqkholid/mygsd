@@ -68,10 +68,10 @@ if (!$this->session->userdata('role') || !in_array($this->session->userdata('rol
         </div>
         <div class="view-all text-center">
             <span class="text-white bg-red-800 p-2 text-xs rounded cursor-pointer">Lihat Semua</span>
-            
-            <!-- <a href="<?= site_url('auth/logout'); ?>">
+            <br><br>
+            <a href="<?= site_url('auth/logout'); ?>">
                 <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Logout</button>
-            </a> -->
+            </a>
         </div>
     </div>
 
