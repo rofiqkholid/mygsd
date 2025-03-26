@@ -23,10 +23,12 @@
                 </li>
                 <ul id="dropdown-tiket" class="dropdown overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
                     <div class="pb-7">
-                        <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
-                            <div class="dash w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
-                            <span class="subtitle ml-3 text-[13px]">Monitoring E-Tiket</span>
-                        </li>
+                        <a href="<?= base_url('tiketing/monitoring_tiketing') ?>">
+                            <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
+                                <div class="dash w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
+                                <span class="subtitle ml-3 text-[13px]">Monitoring E-Tiket</span>
+                            </li>
+                        </a>
                         <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
                             <div class="dash w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
                             <span class="subtitle ml-3 text-[13px]">Approval</span>
@@ -170,7 +172,7 @@
                 attributes: true
             });
 
-            
+
         });
     </script>
 </body>

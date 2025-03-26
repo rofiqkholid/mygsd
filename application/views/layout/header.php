@@ -10,13 +10,15 @@
 <body class="bg-gray-100">
     <header class="bg-red-800 w-full shadow-md py-4 fixed">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="<?= site_url('./welcome'); ?>" class="text-xl font-bold text-white">MyGSD Service</a>
+            <a href="<?= base_url('main'); ?>" class="text-xl font-bold text-white">MyGSD Service</a>
 
             <nav class="hidden md:flex space-x-6 mr-10">
                 <a href="#" class="text-white hover:font-bold w-16 text-center">News</a>
                 <a href="#" class="text-white hover:font-bold w-16 text-center">About</a>
                 <a href="#" class="text-white hover:font-bold w-16 text-center">Contact</a>
                 <a href="#" class="text-white hover:font-bold w-16 text-center">Profile</a>
+                <a href="<?= site_url('auth/logout'); ?>" class="text-white hover:font-bold w-16 text-center">Logout</a>
+                </a>
             </nav>
 
             <button class="md:hidden text-white focus:outline-none" id="mobile-menu-button">

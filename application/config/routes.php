@@ -11,7 +11,6 @@ $route['auth'] = 'AuthController/index';
 $route['auth/logout'] = 'AuthController/logout';
 $route['auth/proses_login'] = 'AuthController/proses_login';
 
-// Admin Routes
 $route['dashboard'] = 'DashboardController';
 
 $route['epermit'] = 'PermitController';
@@ -22,6 +21,10 @@ $route['epermit/permit_grafik'] = 'PermitController/permit_grafik';
 $route['main'] = 'MainController';
 
 // Tiketing Routes
+
+$route['tiketing/monitoring_tiketing'] = 'TiketingController/monitoring_tiketing';
 $route['tiketing'] = 'TiketingController';
 $route['tiketing/submit'] = 'TiketingController/submit_tiketing';
+$route['tiketing/view'] = 'TiketingController/view_tiketing';
+
 

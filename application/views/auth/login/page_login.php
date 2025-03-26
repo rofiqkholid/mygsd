@@ -13,7 +13,7 @@
     <div class="flex flex-col justify-center items-center min-h-screen">
         <!-- Login Form -->
         <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Welcome Back</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Hii.. Welcome</h2>
             <p class="text-center text-gray-600 mb-4">Please login to your account</p>
 
             <?php if ($this->session->flashdata('error')): ?>
