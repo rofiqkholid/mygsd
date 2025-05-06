@@ -53,7 +53,7 @@ class TiketingController extends CI_Controller
 
     private function upload_images($field_name)
     {
-        $this->load->library('upload'); // Pastikan library upload dimuat
+        $this->load->library('upload'); 
 
         $files = $_FILES[$field_name];
         $uploaded_files = array();

@@ -19,17 +19,17 @@ class AuthController extends CI_Controller
     {
         $this->load->view('auth/login/page_login');
     }
-
+    
     public function proses_login()
     {
-        $no_identity = $this->input->post('no_identity');
+        $identity = $this->input->post('identity');
         $password = $this->input->post('password');
 
         $hashed_password = hash('sha256', $password);
 
         $query = $this->db->query(
-            "SELECT * FROM users WHERE IdentityNum = ? AND Password = ?",
-            array($no_identity, $hashed_password)
+            "SELECT * FROM users WHERE Identity = ? AND Password = ?",
+            array($identity, $hashed_password)
         );
 
         $user = $query->row();
@@ -42,9 +42,9 @@ class AuthController extends CI_Controller
             ];
             $this->session->set_userdata($session_data);
 
-            if ($user->Role == 'mahasiswa') {
+            if ($user->Role == 'User') {
                 redirect('main');
-            } elseif ($user->Role == 'staff') {
+            } elseif ($user->Role == 'Staff') {
                 redirect('dashboard');
             }
         } else {

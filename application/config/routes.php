@@ -11,6 +11,10 @@ $route['auth'] = 'AuthController/index';
 $route['auth/logout'] = 'AuthController/logout';
 $route['auth/proses_login'] = 'AuthController/proses_login';
 
+// Route mobile
+$route['auth/proses_login_mobile'] = 'AuthController/proses_login_mobile';
+$route['auth/proses_post_tiketing_mobile'] = 'MobileController/post_tiketing';
+
 $route['dashboard'] = 'DashboardController';
 
 $route['epermit'] = 'PermitController';

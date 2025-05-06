@@ -24,8 +24,8 @@
 
             <form action="<?php echo site_url('auth/proses_login'); ?>" method="POST" class="space-y-6">
                 <div>
-                    <label for="no_identity" class="block text-sm font-medium text-gray-700">No Identity / NPM / NIK</label>
-                    <input type="text" id="no_identity" name="no_identity" placeholder="Enter your NPM" required
+                    <label for="identity" class="block text-sm font-medium text-gray-700">No Identity / NPM / NIK</label>
+                    <input type="text" id="identity" name="identity" placeholder="Enter your NPM" required
                         class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-50 0 focus:border-blue-500">
                 </div>
                 <div>

@@ -1,9 +1,8 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <body class="bg-gray-200">
-    <div id="sidebar" class="sidebar fixed left-0 top-0 h-full bg-white shadow-md dark:bg-gray-900 p-4 closed z-50">
+    <div id="sidebar" class="sidebar fixed left-0 top-0 h-full bg-white shadow-md p-4 closed z-50">
         <div class="sidebar-logo flex items-center p-2 m-2">
-            <img src="<?= base_url('public/assets/img/logo_college.png') ?>" alt="Logo" class="h-8 w-7">
             <span>MyGSD Service</span>
             <button id="toggleGeser">
                 <i class="bi bi-chevron-double-right text-xl flex ml-4 rounded p-1 text-red-800 mt-1"></i>

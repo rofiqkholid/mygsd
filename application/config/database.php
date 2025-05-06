@@ -5,11 +5,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'DHENROFIQ',
-	'username' => 'sa',
+	'hostname' => '127.0.0.1',
+	'username' => 'rofiqkholid',
 	'password' => 'dhenrofiq',
-	'database' => 'gsd_db',
-	'dbdriver' => 'sqlsrv',
+	'database' => 'mygsd_db',
+	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
