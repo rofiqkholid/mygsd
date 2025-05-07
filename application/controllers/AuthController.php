@@ -1,66 +1,51 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * @property CI_Input $input
- * @property CI_DB_query_builder $db
- * @property CI_Session $session
+ * @property input $input
+ * @property Session $session
+ * @property AuthModel $AuthModel
  */
-class AuthController extends CI_Controller
-{
-    public function __construct()
-    {
+class AuthController extends CI_Controller {
+    public function __construct() {
         parent::__construct();
-        $this->load->database();
-        $this->load->library('session');
-        $this->load->helper('url');
+        $this->load->model('AuthModel');
     }
 
-    public function index()
-    {
+    public function index() {
         $this->load->view('auth/login/page_login');
     }
+
+    public function proses_login() {
+        $identity = $this->input->post('identity', TRUE);
+        $password = $this->input->post('password', TRUE);
     
-    public function proses_login()
-    {
-        $identity = $this->input->post('identity');
-        $password = $this->input->post('password');
-
-        $hashed_password = hash('sha256', $password);
-
-        $query = $this->db->query(
-            "SELECT * FROM users WHERE Identity = ? AND Password = ?",
-            array($identity, $hashed_password)
-        );
-
-        $user = $query->row();
-
+        $user = $this->AuthModel->check_login($identity);
+    
         if ($user) {
-            $session_data = [
-                'user_id' => $user->UserID,
-                'role' => $user->Role,
-                'logged_in' => true
-            ];
-            $this->session->set_userdata($session_data);
-
-            if ($user->Role == 'User') {
-                redirect('main');
-            } elseif ($user->Role == 'Staff') {
-                redirect('dashboard');
+            $salt = $user['salt'];
+            $hashed_password = hash('sha256', $password . $salt);
+            
+            if ($hashed_password === $user['password']) {
+                $this->session->set_userdata([
+                    'id_user' => $user['id_user'],
+                    'identity' => $user['identity'],
+                    'name' => $user['name'],
+                    'role' => $user['role'],
+                    'logged_in' => true
+                ]);
+                redirect('main'); 
+            } else {
+                $this->session->set_flashdata('error', 'Identity atau Password salah!');
+                redirect('AuthController');
             }
         } else {
-            $this->session->set_flashdata('error', 'GAGAL LOGIN: Cek kembali No. Identitas dan Password Anda!');
-            redirect('auth');
+            $this->session->set_flashdata('error', 'Identity atau Password salah!');
+            redirect('AuthController');
         }
     }
-    public function logout()
-    {
+
+    public function logout() {
         $this->session->sess_destroy();
-
-        header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-        header("Cache-Control: post-check=0, pre-check=0", false);
-        header("Pragma: no-cache");
-
-        redirect('auth');
-        exit;
+        redirect('AuthController');
     }
 }

@@ -1,16 +1,11 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AuthModel extends CI_Model
-{
-    public function check_user($no_identity)
-    {
-        $sql = "SELECT id_user, long_name, role, password FROM Users WHERE no_identity = ?";
-        $query = $this->db->query($sql, array($no_identity));
+class AuthModel extends CI_Model {
 
-        if ($query->num_rows() == 1) {
-            return $query->row();
-        }
-        return false;
+    public function check_login($identity) {
+        return $this->db->get_where('users', ['identity' => $identity])->row_array();
     }
 }
+
+?>

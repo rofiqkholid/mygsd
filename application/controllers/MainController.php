@@ -12,7 +12,7 @@ class MainController extends CI_Controller
     {
         parent::__construct();
         
-        if (!$this->session->userdata('role') || !in_array($this->session->userdata('role'), ['User'])) {
+        if (!$this->session->userdata('role') || !in_array($this->session->userdata('role'), ['user'])) {
             redirect('auth');
             exit;
         }

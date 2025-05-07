@@ -1,10 +1,3 @@
-<?php
-if (!$this->session->userdata('role') || !in_array($this->session->userdata('role'), ['User'])) {
-    redirect('auth');
-    exit;
-}
-?>
-
 <?php $this->load->view('layout/header'); ?>
 
 <style>
