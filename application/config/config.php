@@ -102,6 +102,10 @@ $config['enable_hooks'] = FALSE;
 */
 $config['subclass_prefix'] = 'MY_';
 
+
+
+$config['allow_cors'] = TRUE;  
+
 /*
 |--------------------------------------------------------------------------
 | Composer auto-loading

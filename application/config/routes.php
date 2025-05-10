@@ -12,7 +12,7 @@ $route['auth/logout'] = 'AuthController/logout';
 $route['auth/proses_login'] = 'AuthController/proses_login';
 
 // Route mobile
-$route['auth/proses_login_mobile'] = 'AuthController/proses_login_mobile';
+$route['api/auth/proses_login_mobile'] = 'Api/Mobile/AuthControllerMobile/proses_login_mobile';
 $route['auth/proses_post_tiketing_mobile'] = 'MobileController/post_tiketing';
 
 $route['dashboard'] = 'DashboardController';
@@ -30,5 +30,9 @@ $route['tiketing/monitoring_tiketing'] = 'TiketingController/monitoring_tiketing
 $route['tiketing'] = 'TiketingController';
 $route['tiketing/submit'] = 'TiketingController/submit_tiketing';
 $route['tiketing/view'] = 'TiketingController/view_tiketing';
+
+
+$route['status_laporan/(:num)'] = 'TiketingController/status_laporan/$1';
+
 
 
