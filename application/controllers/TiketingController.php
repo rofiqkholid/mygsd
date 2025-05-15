@@ -10,7 +10,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
  */
 class TiketingController extends CI_Controller
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -195,16 +194,138 @@ class TiketingController extends CI_Controller
         }
     }
 
-    public function status_laporan($id_user)
+    public function status_laporan()
     {
-        // Validasi ID user
-        if (!is_numeric($id_user)) {
-            show_404();
+        $id_user = $this->session->userdata('id_user');
+        if (!$id_user) {
+            $this->session->set_flashdata('error', 'Sesi User tidak valid. Silakan login kembali.');
+            redirect('auth');
+            exit;
         }
 
         $data['laporan'] = $this->TiketingModel->getLaporanByUser($id_user);
         $data['title'] = 'Status Laporan';
-
         $this->load->view('tiketing/status_laporan', $data);
+    }
+
+    public function edit_tiketing($id_tiket)
+    {
+        $id_user = $this->session->userdata('id_user');
+        if (!$id_user) {
+            $this->session->set_flashdata('error', 'Sesi User tidak valid. Silakan login kembali.');
+            redirect('auth');
+            exit;
+        }
+
+        $ticket = $this->TiketingModel->getTicketById($id_tiket);
+        if (!$ticket || $ticket['id_user'] != $id_user) {
+            $this->session->set_flashdata('error', 'Tiket tidak ditemukan atau Anda tidak memiliki akses.');
+            redirect('tiketingcontroller/status_laporan');
+            exit;
+        }
+
+        $data['ticket'] = $ticket;
+        $data['title'] = 'Edit Tiket';
+        $this->load->view('tiketing/edit_tiketing', $data);
+    }
+
+    public function update_tiketing($id_tiket)
+    {
+        $id_user = $this->session->userdata('id_user');
+        if (!$id_user) {
+            $this->session->set_flashdata('error', 'Sesi User tidak valid. Silakan login kembali.');
+            redirect('auth');
+            exit;
+        }
+
+        $ticket = $this->TiketingModel->getTicketById($id_tiket);
+        if (!$ticket || $ticket['id_user'] != $id_user) {
+            $this->session->set_flashdata('error', 'Tiket tidak ditemukan atau Anda tidak memiliki akses.');
+            redirect('tiketingcontroller/status_laporan');
+            exit;
+        }
+
+        $this->form_validation->set_rules('nama_pelapor', 'Nama Pelapor', 'trim|required', [
+            'required' => '%s harus diisi.'
+        ]);
+        $this->form_validation->set_rules('email', 'Email Pelapor', 'trim|required|valid_email', [
+            'required' => '%s harus diisi.',
+            'valid_email' => '%s tidak valid.'
+        ]);
+        $this->form_validation->set_rules('kategori', 'Kategori Layanan', 'trim|required', [
+            'required' => '%s harus dipilih.'
+        ]);
+        $this->form_validation->set_rules('subjek', 'Subjek Tiket', 'trim|required|min_length[5]', [
+            'required' => '%s harus diisi.',
+            'min_length' => '%s minimal {param} karakter.'
+        ]);
+        $this->form_validation->set_rules('prioritas', 'Tingkat Prioritas', 'trim|required', [
+            'required' => '%s harus dipilih.'
+        ]);
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'trim|required|min_length[10]', [
+            'required' => '%s harus diisi.',
+            'min_length' => '%s minimal {param} karakter.'
+        ]);
+        $this->form_validation->set_rules('lokasi', 'Lokasi Terkait', 'trim|required', [
+            'required' => '%s harus dipilih.'
+        ]);
+        $this->form_validation->set_rules('detail_lokasi', 'Detail Lokasi', 'trim|required', [
+            'required' => '%s harus diisi.'
+        ]);
+        $this->form_validation->set_rules('tanggal_kejadian', 'Tanggal Kejadian', 'trim|required', [
+            'required' => '%s harus dipilih.'
+        ]);
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->session->set_flashdata('error', 'Formulir gagal dikirim. Periksa kembali isian Anda.<br>' . validation_errors());
+            $this->session->set_flashdata('form_data', $this->input->post());
+            $this->edit_tiketing($id_tiket);
+        } else {
+            $data_pengaduan = [
+                'reporter_name'    => $this->input->post('nama_pelapor', TRUE),
+                'reporter_email'   => $this->input->post('email', TRUE),
+                'category'         => $this->input->post('kategori', TRUE),
+                'subject'          => $this->input->post('subjek', TRUE),
+                'priority'         => $this->input->post('prioritas', TRUE),
+                'description'      => $this->input->post('deskripsi', TRUE),
+                'location'         => $this->input->post('lokasi', TRUE),
+                'detail_location'  => $this->input->post('detail_lokasi', TRUE),
+                'incident_date'    => $this->input->post('tanggal_kejadian', TRUE),
+                'visit_schedule'   => !empty($this->input->post('jadwal_kunjungan', TRUE)) ? date('Y-m-d H:i:s', strtotime($this->input->post('jadwal_kunjungan', TRUE))) : NULL,
+                'additional_notes' => !empty($this->input->post('catatan_tambahan', TRUE)) ? $this->input->post('catatan_tambahan', TRUE) : NULL,
+                'update_date'      => date('Y-m-d H:i:s')
+            ];
+
+            $updated = $this->TiketingModel->update_tiketing($id_tiket, $data_pengaduan);
+
+            if ($updated) {
+                $this->session->set_flashdata('success', 'Tiket #' . $id_tiket . ' berhasil diperbarui.');
+                redirect('tiketingcontroller/status_laporan');
+            } else {
+                $this->session->set_flashdata('error', 'Gagal memperbarui tiket.');
+                $this->edit_tiketing($id_tiket);
+            }
+        }
+    }
+
+    public function detail_tiketing($id_tiket)
+    {
+        $id_user = $this->session->userdata('id_user');
+        if (!$id_user) {
+            $this->session->set_flashdata('error', 'Sesi User tidak valid. Silakan login kembali.');
+            redirect('auth');
+            exit;
+        }
+
+        $ticket = $this->TiketingModel->getTicketById($id_tiket);
+        if (!$ticket || $ticket['id_user'] != $id_user) {
+            $this->session->set_flashdata('error', 'Tiket tidak ditemukan atau Anda tidak memiliki akses.');
+            redirect('tiketingcontroller/status_laporan');
+            exit;
+        }
+
+        $data['ticket'] = $ticket;
+        $data['title'] = 'Detail Tiket';
+        $this->load->view('tiketing/detail_tiketing', $data);
     }
 }

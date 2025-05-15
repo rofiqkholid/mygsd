@@ -34,7 +34,6 @@ function getMobileLinkClasses($pageName, $currentPage)
     $activeClasses = 'text-white bg-gradient-to-r from-blue-600 to-blue-700 shadow-sm';
     $inactiveClasses = 'text-gray-700 hover:text-blue-600 hover:bg-blue-50';
     
-    // Check if current URL contains the page name (for pages like status_laporan)
     $isActive = false;
     if ($pageName == $currentPage) {
         $isActive = true;
@@ -57,6 +56,7 @@ function getMobileLinkClasses($pageName, $currentPage)
     <title>MyGSD Service</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -229,9 +229,9 @@ function getMobileLinkClasses($pageName, $currentPage)
                 </a>
             </div>
             <div class="pt-4 pb-4 border-t border-gray-200">
-                <?php if ($isLoggedIn): ?>
+                <?php if ($id_user): ?>
                     <div class="px-5">
-                        <a href="/logout.php" class="flex justify-center items-center w-full px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white btn-danger text-center">
+                        <a href="base_url('auth/logout')" class="flex justify-center items-center w-full px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white btn-danger text-center">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
                             </svg>
