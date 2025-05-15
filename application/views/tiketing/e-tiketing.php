@@ -159,10 +159,10 @@
                         </label>
                         <select name="prioritas" id="prioritas" class="mt-1 block w-full p-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-white <?= form_error('prioritas') ? 'is-invalid' : ''; ?>" required>
                             <option value="" disabled <?= empty($prioritas_val) ? 'selected' : ''; ?>>Pilih Prioritas</option>
-                            <option value="Rendah" <?= $prioritas_val == 'rendah' ? 'selected' : ''; ?>>Rendah (Low)</option>
-                            <option value="Sedang" <?= $prioritas_val == 'sedang' ? 'selected' : ''; ?>>Sedang (Medium)</option>
-                            <option value="Tinggi" <?= $prioritas_val == 'tinggi' ? 'selected' : ''; ?>>Tinggi (High)</option>
-                            <option value="Urgent" <?= $prioritas_val == 'kritis' ? 'selected' : ''; ?>>Darurat (Critical)</option>
+                            <option value="Rendah" <?= $prioritas_val == 'Rendah' ? 'selected' : ''; ?>>Rendah (Low)</option>
+                            <option value="Sedang" <?= $prioritas_val == 'Sedang' ? 'selected' : ''; ?>>Sedang (Medium)</option>
+                            <option value="Tinggi" <?= $prioritas_val == 'Tinggi' ? 'selected' : ''; ?>>Tinggi (High)</option>
+                            <option value="Urgent" <?= $prioritas_val == 'Kritis' ? 'selected' : ''; ?>>Darurat (Critical)</option>
                         </select>
                         <?= form_error('prioritas'); ?>
                         <div class="validation-message" id="prioritas-error" style="display:none;">Silakan pilih tingkat prioritas.</div>
