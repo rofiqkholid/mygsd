@@ -75,8 +75,8 @@
 
         <?php
         $form_data = $this->session->flashdata('form_data');
-        $nama_pelapor_val = isset($form_data['nama_pelapor']) ? $form_data['nama_pelapor'] : (isset($nama_pelapor) ? $nama_pelapor : '');
-        $email_val = isset($form_data['email']) ? $form_data['email'] : (isset($email_pelapor) ? $email_pelapor : '');
+        $nama_pelapor_val = $this->session->userdata('name');
+        $email_val = $this->session->userdata('email');
         $kategori_val = isset($form_data['kategori']) ? $form_data['kategori'] : '';
         $subjek_val = isset($form_data['subjek']) ? $form_data['subjek'] : '';
         $prioritas_val = isset($form_data['prioritas']) ? $form_data['prioritas'] : '';
@@ -102,18 +102,20 @@
                                 <label for="nama_pelapor" class="block text-sm font-semibold text-gray-700 flex items-center">
                                     <i class="bi bi-person mr-2 text-gray-500"></i> Nama Lengkap <span class="text-red-500 ml-1">*</span>
                                 </label>
-                                <input type="text" name="nama_pelapor" id="nama_pelapor" value="<?= html_escape($nama_pelapor_val); ?>" class="mt-1 block w-full p-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm <?= form_error('nama_pelapor') ? 'is-invalid' : ''; ?>" required placeholder="Masukkan nama lengkap">
-                                <?= form_error('nama_pelapor'); ?>
-                                <div class="validation-message" id="nama-error" style="display:none;">Silakan isi nama lengkap Anda.</div>
+                                <input type="text" name="nama_pelapor" id="nama_pelapor"
+                                    value="<?= html_escape($nama_pelapor_val); ?>"
+                                    class="mt-1 block w-full p-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    readonly>
                             </div>
 
                             <div class="form-group">
                                 <label for="email" class="block text-sm font-semibold text-gray-700 flex items-center">
                                     <i class="bi bi-envelope mr-2 text-gray-500"></i> Email <span class="text-red-500 ml-1">*</span>
                                 </label>
-                                <input type="email" name="email" id="email" value="<?= html_escape($email_val); ?>" class="mt-1 block w-full p-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm <?= form_error('email') ? 'is-invalid' : ''; ?>" required placeholder="contoh@email.com">
-                                <?= form_error('email'); ?>
-                                <div class="validation-message" id="email-error" style="display:none;">Silakan masukkan email yang valid.</div>
+                                <input type="email" name="email" id="email"
+                                    value="<?= html_escape($email_val); ?>"
+                                    class="mt-1 block w-full p-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    readonly>
                             </div>
                         </div>
                     </div>
@@ -363,7 +365,7 @@
             clearValidationError('upload-foto-error');
             cameraContainer.classList.remove('hidden');
             openCameraBtn.classList.add('hidden');
-            cameraElement.innerHTML = '<i class="bi bi-camera-video text-3xl"></i>'; 
+            cameraElement.innerHTML = '<i class="bi bi-camera-video text-3xl"></i>';
 
             if (!cameraInitialized) {
                 initializeCamera();
@@ -716,14 +718,6 @@
 
 
             const requiredFields = {
-                'nama_pelapor': {
-                    errorId: 'nama-error',
-                    message: 'Nama pelapor harus diisi.'
-                },
-                'email': {
-                    errorId: 'email-error',
-                    message: 'Email harus diisi.'
-                },
                 'kategori': {
                     errorId: 'kategori-error',
                     message: 'Kategori layanan harus dipilih.'

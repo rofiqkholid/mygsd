@@ -27,7 +27,7 @@ class TiketingController extends CI_Controller
 
     public function index()
     {
-        $data['nama_pelapor'] = $this->session->userdata('nama_lengkap');
+        $data['nama_pelapor'] = $this->session->userdata('name');
         $data['email_pelapor'] = $this->session->userdata('email');
         $data['title'] = 'Form Pengaduan e-Tiketing';
         $this->load->view('tiketing/e-tiketing', $data);
@@ -35,13 +35,6 @@ class TiketingController extends CI_Controller
 
     public function submit_tiketing()
     {
-        $this->form_validation->set_rules('nama_pelapor', 'Nama Pelapor', 'trim|required', [
-            'required' => '%s harus diisi.'
-        ]);
-        $this->form_validation->set_rules('email', 'Email Pelapor', 'trim|required|valid_email', [
-            'required' => '%s harus diisi.',
-            'valid_email' => '%s tidak valid.'
-        ]);
         $this->form_validation->set_rules('kategori', 'Kategori Layanan', 'trim|required', [
             'required' => '%s harus dipilih.'
         ]);
@@ -153,8 +146,8 @@ class TiketingController extends CI_Controller
 
                 $data_pengaduan = [
                     'id_user'          => $id_user,
-                    'reporter_name'    => $this->input->post('nama_pelapor', TRUE),
-                    'reporter_email'   => $this->input->post('email', TRUE),
+                    'reporter_name'    => $this->session->userdata('name'),
+                    'reporter_email'   => $this->session->userdata('email'),
                     'category'         => $this->input->post('kategori', TRUE),
                     'subject'          => $this->input->post('subjek', TRUE),
                     'priority'         => $this->input->post('prioritas', TRUE),
@@ -245,13 +238,6 @@ class TiketingController extends CI_Controller
             exit;
         }
 
-        $this->form_validation->set_rules('nama_pelapor', 'Nama Pelapor', 'trim|required', [
-            'required' => '%s harus diisi.'
-        ]);
-        $this->form_validation->set_rules('email', 'Email Pelapor', 'trim|required|valid_email', [
-            'required' => '%s harus diisi.',
-            'valid_email' => '%s tidak valid.'
-        ]);
         $this->form_validation->set_rules('kategori', 'Kategori Layanan', 'trim|required', [
             'required' => '%s harus dipilih.'
         ]);
@@ -282,8 +268,8 @@ class TiketingController extends CI_Controller
             $this->edit_tiketing($id_tiket);
         } else {
             $data_pengaduan = [
-                'reporter_name'    => $this->input->post('nama_pelapor', TRUE),
-                'reporter_email'   => $this->input->post('email', TRUE),
+                'reporter_name'    => $this->session->userdata('name'),
+                'reporter_email'   => $this->session->userdata('email'),
                 'category'         => $this->input->post('kategori', TRUE),
                 'subject'          => $this->input->post('subjek', TRUE),
                 'priority'         => $this->input->post('prioritas', TRUE),

@@ -30,6 +30,7 @@ class AuthController extends CI_Controller {
                     'id_user' => $user['id_user'],
                     'identity' => $user['identity'],
                     'name' => $user['name'],
+                    'email' => $user['email'],
                     'role' => $user['role'],
                     'logged_in' => true
                 ]);
