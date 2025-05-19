@@ -94,4 +94,8 @@ class FoundController extends CI_Controller
       redirect('found');
     }
   }
+  public function detail_penemuan() {
+        $this->load->view('lostfound/detail_penemuan');
+
+  }
 }

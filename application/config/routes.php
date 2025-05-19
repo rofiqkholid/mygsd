@@ -34,8 +34,11 @@ $route['status_laporan/(:num)'] = 'TiketingController/status_laporan/$1';
 // Found Routes
 $route['found'] = 'FoundController';
 $route['found/submit_found'] = 'FoundController/submit_found';
+$route['found/detail_found'] = 'FoundController/detail_penemuan';
 
 
+// Permit
 
+$route['status_permit'] = 'PermitController/status_permit';
 
 

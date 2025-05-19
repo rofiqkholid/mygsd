@@ -251,7 +251,6 @@
       </div>
     </div>
     <?= form_close(); ?>
-
   </div>
 </div>
 
@@ -752,5 +751,3 @@
     updateFileNameDisplay();
   });
 </script>
-
-<?php $this->load->view('layout/footer'); ?>

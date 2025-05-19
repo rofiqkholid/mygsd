@@ -29,12 +29,13 @@ class AuthController extends CI_Controller {
                 $this->session->set_userdata([
                     'id_user' => $user['id_user'],
                     'identity' => $user['identity'],
+                    'username' => $user['username'],
                     'name' => $user['name'],
                     'email' => $user['email'],
                     'role' => $user['role'],
                     'logged_in' => true
                 ]);
-                redirect('main'); 
+                redirect('main');
             } else {
                 $this->session->set_flashdata('error', 'Identity atau Password salah!');
                 redirect('AuthController');
