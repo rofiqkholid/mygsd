@@ -94,8 +94,45 @@ class FoundController extends CI_Controller
       redirect('found');
     }
   }
-  public function detail_penemuan() {
-        $this->load->view('lostfound/detail_penemuan');
+  public function detail_penemuan()
+  {
+    $id_user = $this->session->userdata('id_user');
+    if (!$id_user) {
+      redirect('login');
+    }
+    $data['found_items'] = $this->FoundModel->get_found_items_by_user($id_user);
+    $this->load->view('lostfound/detail_penemuan', $data);
+  }
 
+  public function update_status()
+  {
+    if ($this->input->method() == 'post') {
+      $id_found = $this->input->post('id_found');
+      $status = $this->input->post('status');
+
+      $allowed_status = array('Belum diklaim', 'Diklaim', 'Karantina');
+      if (!in_array($status, $allowed_status)) {
+        $this->session->set_flashdata('error', 'Status tidak valid');
+        redirect('found');
+      }
+
+      $item = $this->FoundModel->get_found_item_by_id($id_found);
+      if (!$item) {
+        $this->session->set_flashdata('error', 'Barang tidak ditemukan');
+        redirect('found');
+      }
+
+      $current_user_id = $this->session->userdata('user_id');
+      if ($current_user_id != $item['id_user']) {
+        $this->session->set_flashdata('error', 'Anda tidak berhak mengubah status barang ini');
+        redirect('found');
+      }
+
+      $this->FoundModel->update_status($id_found, $status);
+      $this->session->set_flashdata('success', 'Status berhasil diperbarui');
+      redirect('found');
+    } else {
+      redirect('found');
+    }
   }
 }

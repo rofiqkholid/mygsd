@@ -25,9 +25,7 @@ function getLinkClasses($pageName, $currentPage)
     } else if ($pageName == 'main' && strpos($_SERVER['REQUEST_URI'], 'main') !== false) {
         $isActive = true;
     }
-    else if ($pageName == 'status_permit' && strpos($_SERVER['REQUEST_URI'], 'status_permit') !== false) {
-        $isActive = true;
-    }
+   
 
     return $baseClasses . ' ' . ($isActive ? $activeClasses : $inactiveClasses);
 }
@@ -44,9 +42,6 @@ function getMobileLinkClasses($pageName, $currentPage)
     } else if ($pageName == 'status_laporan' && strpos($_SERVER['REQUEST_URI'], 'status_laporan') !== false) {
         $isActive = true;
     } else if ($pageName == 'main' && strpos($_SERVER['REQUEST_URI'], 'main') !== false) {
-        $isActive = true;
-    }
-    else if ($pageName == 'status_permit' && strpos($_SERVER['REQUEST_URI'], 'status_permit') !== false) {
         $isActive = true;
     }
 
@@ -222,13 +217,6 @@ function getMobileLinkClasses($pageName, $currentPage)
                         Laporan Saya
                         <span class="active-link-indicator"></span>
                     </a>
-                    <a href="<?= base_url('status_permit/' . $id_user) ?>" class="<?= getLinkClasses('status_permit', $currentPage) ?> <?= (strpos($_SERVER['REQUEST_URI'], 'status_permit') !== false) ? 'nav-active' : '' ?>">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2 nav-icon transition-all duration-300">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
-                        </svg>
-                        Status Permit
-                        <span class="active-link-indicator"></span>
-                    </a>
                     <a href="/kontak.php" class="<?= getLinkClasses('kontak.php', $currentPage) ?> <?= ($currentPage == 'kontak.php') ? 'nav-active' : '' ?>">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2 nav-icon transition-all duration-300">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
@@ -287,12 +275,6 @@ function getMobileLinkClasses($pageName, $currentPage)
                         <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
                     </svg>
                     Laporan Saya
-                </a>
-                <a href="<?= base_url('status_permit/' . $id_user) ?>" class="<?= getMobileLinkClasses('status_permit', $currentPage) ?>">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-3 nav-icon">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.05a2.25 2.25 0 0 1-2.25 2.25h-12a2.25 2.25 0 0 1-2.25-2.25v-4.05m16.5 0a2.25 2.25 0 0 0-2.25-2.25h-12a2.25 2.25 0 0 0-2.25 2.25m16.5 0v-4.05a2.25 2.25 0 0 0-2.25-2.25h-12a2.25 2.25 0 0 0-2.25 2.25v4.05m0 0H21" />
-                    </svg>
-                    Status Permit
                 </a>
                 <a href="/kontak.php" class="<?= getMobileLinkClasses('kontak.php', $currentPage) ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-3 nav-icon">

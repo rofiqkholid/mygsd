@@ -1,10 +1,4 @@
-<?php
 
-if (!$this->session->userdata('role') || !in_array($this->session->userdata('role'), ['staff'])) {
-    redirect('auth');
-    exit;
-}
-?>
 <head>
     <title>MyGSD - Dashboard Monitoring</title>
     <link rel="stylesheet" href="<?= base_url('assets/css/app.css') ?>">
