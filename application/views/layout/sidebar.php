@@ -18,7 +18,7 @@
                 </a>
                 <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-2 cursor-pointer" onclick="toggleDropdown('dropdown-tiket')">
                     <i class="bi bi-ticket-perforated-fill"></i>
-                    <span>E-Tiketing</span>
+                    <span>Tiketing</span>
                 </li>
                 <ul id="dropdown-tiket" class="dropdown overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
                     <div class="pb-7">
@@ -34,28 +34,6 @@
                         </li>
                     </div>
                 </ul>
-                <!-- E-Permit -->
-                <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-2 cursor-pointer" onclick="toggleDropdown('dropdown-permit')">
-                    <i class="bi bi-ui-checks"></i>
-                    <span>E-Permit</span>
-                </li>
-                <ul id="dropdown-permit" class="dropdown overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
-                    <div class="pb-7">
-                        <a href="<?= base_url('epermit/monitoring_permit') ?>">
-                            <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
-                                <div class="dash w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
-                                <span class="subtitle ml-3 text-[13px]">Monitoring</span>
-                            </li>
-                        </a>
-                        <a href="<?= base_url('epermit/permit_grafik') ?>">
-                            <li class="p-2 flex items-center group hover:text-red-800 transition-all duration-300 cursor-pointer ml-4">
-                                <div class="dash w-3 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-6 group-hover:bg-red-800"></div>
-                                <span class="subtitle ml-3 text-[13px]">Grafik </span>
-                            </li>
-                        </a>
-                    </div>
-                </ul>
-            </ul>
 
             <li class="nav-item hover:bg-red-800 hover:text-white p-2 m-2 cursor-pointer" onclick="toggleDropdown('dropdown-lost')">
                 <i class="bi bi-box-seam-fill"></i>
